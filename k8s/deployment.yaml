@@ -25,11 +25,9 @@ spec:
           ports:
             - name: http
               containerPort: 5001
-          env:
-            - name: GREETING
-              value: "Hello from Kubernetes"
-            - name: APP_VERSION
-              value: "v1"
+          # No env block, on purpose. A GREETING here would shadow the app's
+          # default, so editing app.py could never change what you see. Leaving
+          # it unset is what makes the next pipeline run visibly different.
           resources:
             requests:
               cpu: 50m

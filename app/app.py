@@ -12,7 +12,7 @@ from prometheus_client import (
 
 app = Flask(__name__)
 
-GREETING = os.environ.get("GREETING", "Hello from the DevOps demo app")
+GREETING = os.environ.get("GREETING", "Hello from the Jenkins pipeline")
 
 REQUEST_COUNT = Counter(
     "app_requests_total",
