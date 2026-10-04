@@ -1,0 +1,18 @@
+services:
+  floci:
+    image: floci/floci:latest
+    container_name: floci
+    ports:
+      - "4566:4566"
+    volumes:
+      # Local directory bind mount (default)
+      - ./data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - FLOCI_SERVICES_UI_ENABLED=true 
+      # OR named volume (optional):
+      - floci-data:/app/data
+      - FLOCI_STORAGE_MODE=hybrid
+
+# volumes:
+#   floci-data:

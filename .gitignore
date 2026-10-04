@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Environment
+.env
+.env.local
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+*.tfvars
+!*.tfvars.example
+
+# Floci (local AWS emulator) runtime state - regenerated on every run
+data/
+floci/data/
+
+# Editor / agent config
+.claude/
+
+# OS
+.DS_Store
