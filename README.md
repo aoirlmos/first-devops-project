@@ -44,7 +44,7 @@ python3 -m venv .venv
 .venv/bin/python app.py
 ```
 
-The app listens on **port 5001** (macOS AirPlay Receiver occupies 5000).
+The app listens on **port 5001**.
 
 ## Endpoints
 
