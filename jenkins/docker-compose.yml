@@ -1,0 +1,25 @@
+services:
+  jenkins:
+    build: .
+    image: devops-jenkins:local
+    container_name: jenkins
+    # Root is needed to write to the bind-mounted Docker socket, which is
+    # owned by your macOS user with mode srwxr-xr-x. Locally acceptable;
+    # in production you would use a dedicated build agent instead.
+    user: root
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      # Lets Jenkins run `docker build` against the host daemon. Because
+      # OrbStack shares its image store with Kubernetes, images built here
+      # are immediately usable by pods - no registry needed.
+      - ${HOME}/.orbstack/run/docker.sock:/var/run/docker.sock
+      # Mounted read-only; the entrypoint rewrites only its own copy.
+      - ${HOME}/.kube/config:/kubeconfig-host/config:ro
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+
+volumes:
+  jenkins_home:

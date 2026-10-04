@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    image: devops-demo:local
+    container_name: devops-demo
+    ports:
+      - "5001:5001"
+    environment:
+      - GREETING=Hello from Docker Compose
+      - APP_VERSION=compose

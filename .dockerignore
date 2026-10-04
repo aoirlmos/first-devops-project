@@ -1,0 +1,26 @@
+# Only app/requirements.txt and app/app.py are COPYed, so keep everything
+# else out of the build context.
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Git and editor
+.git/
+.gitignore
+.claude/
+
+# Not needed to build the image
+floci/
+data/
+k8s/
+jenkins/
+terraform/
+README.md
+Dockerfile
+.dockerignore
+docker-compose.yml
